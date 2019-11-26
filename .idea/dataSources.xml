@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="jdbc:sqlite:/Users/bruger/Desktop/RUC/5. semester/Software Development/Plan&amp;Buy.db" uuid="700ef922-d7dc-4044-9e4f-18654f140eef">
+    <data-source source="LOCAL" name="PlanAndBuy.db" uuid="46ba95dd-d8f9-409f-8d6e-e7364c246015">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$USER_HOME$/Desktop/RUC/5. semester/Software Development/Plan&amp;Buy.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/../../../5. Semester RUC/Software Development/databaser/PlanAndBuy.db</jdbc-url>
       <driver-properties>
         <property name="enable_load_extension" value="true" />
       </driver-properties>

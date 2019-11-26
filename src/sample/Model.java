@@ -32,7 +32,7 @@ class Model {
     public Connection getConnection() throws SQLException {
 
         Connection conn = null;
-        String url = "jdbc:sqlite:/Users/bruger/Desktop/RUC/5. semester/Software Development/Plan&Buy.db";
+        String url = "jdbc:sqlite:/Users/williamkilschowpetersen/Documents/5. Semester RUC/Software Development/databaser/PlanAndBuy.db";
         conn = this.retriever.connect(url);
         return conn;
     }

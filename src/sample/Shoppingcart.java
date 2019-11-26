@@ -1,6 +1,8 @@
 package sample;
 
 
+import javafx.collections.FXCollections;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -8,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Shoppingcart {
 
@@ -31,9 +34,11 @@ public class Shoppingcart {
 
     }
 
-    public void displayItems (ResultSet res, TextArea listDisplay) throws SQLException {
+    public void displayItems (ResultSet res, ListView itemDisplay) throws SQLException {
 
-        listDisplay.setText(m.retriever.presentItem(res));
+        //listDisplay.setText(m.retriever.presentItem(res));
+        itemDisplay.setItems(FXCollections.observableArrayList(m.retriever.presentItem(res)));
+
     }
 
     public String add(String item) {

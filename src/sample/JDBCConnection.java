@@ -1,6 +1,10 @@
 package sample;
 
+import javafx.collections.ObservableList;
+import javafx.scene.control.TextArea;
+
 import java.sql.*;
+import java.util.ArrayList;
 
 public class JDBCConnection {
 
@@ -33,7 +37,7 @@ public class JDBCConnection {
 
     public PreparedStatement selectpreparedstatement(Connection conn)
             throws SQLException {
-        String query = "select Item.ItemName AS ItemName, item.ItemBrand AS ItemBrand, Item.price AS price from Item" +
+        String query = " select Item.ItemName AS ItemName, item.ItemBrand AS ItemBrand, Item.price AS price from Item" +
                 " Where ItemType = ? ";
         PreparedStatement selectpstmt = null;
         selectpstmt = conn.prepareStatement(query);
@@ -53,7 +57,7 @@ public class JDBCConnection {
     //Søgealgoritme her!
     public ResultSet plainstatement(String ItemType, Connection conn)
             throws SQLException {
-        String query = "select Item.ItemName AS ItemName, item.ItemBrand AS ItemBrand, Item.price AS price from Item" +
+        String query = " select Item.ItemName AS ItemName, item.ItemBrand AS ItemBrand, Item.price AS price from Item" +
                        " Where ItemType = '" + ItemType + "'";
         Statement stmt = null;
         ResultSet res = null;
@@ -68,8 +72,9 @@ public class JDBCConnection {
      * @return
      * @throws SQLException
      */
-    public String presentItem(ResultSet res)
+    public ArrayList presentItem(ResultSet res)
             throws SQLException {
+        ArrayList<String> itemList = new ArrayList<>();
 
         if (res == null)
             System.out.println("No records");
@@ -80,8 +85,12 @@ public class JDBCConnection {
             String foundPrice = res.getString("Price");
             String foundBrand = res.getString("ItemBrand");
             message = (foundBrand + " " + foundItem + " " + foundPrice);
+            itemList.add(message);
+
+
+
         }
-        return message;
+        return itemList;
     }
 
 }
