@@ -65,6 +65,28 @@ public class ItemList {
         return items.size();
     }
 
+    public float displayItemPrice(String chosenItem){
+
+       float itemPrice = 0;
+       itemPrice = m.retriever.findItemPrice(chosenItem);
+
+       return itemPrice;
+
+    }
+
+    public float getSumTotal(){
+       float sumTotal =0;
+
+        for (int i = 0; i <items.size() ; i++) {
+            sumTotal = sumTotal + m.retriever.findItemPrice(items.get(i).toString());
+        }
+
+
+
+       return sumTotal;
+
+    }
+
 }
 
 

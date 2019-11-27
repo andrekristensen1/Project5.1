@@ -84,13 +84,20 @@ public class JDBCConnection {
             String foundItem = res.getString("ItemName");
             String foundPrice = res.getString("Price");
             String foundBrand = res.getString("ItemBrand");
-            message = (foundBrand + " " + foundItem + " " + foundPrice);
+            message = (foundBrand + " " + foundItem + ": " + foundPrice);
             itemList.add(message);
 
 
 
         }
         return itemList;
+    }
+
+    public float findItemPrice(String chosenItem){
+        float itemPrice =0;
+        String itemPriceString = chosenItem.substring(chosenItem.length()-5);
+        itemPrice = Float.parseFloat(itemPriceString);
+        return itemPrice;
     }
 
 }

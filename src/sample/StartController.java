@@ -43,6 +43,12 @@ public class StartController extends ItemList  {
         customerShoppingCart.displayShoppingcart(shoppingCartView);
 
         System.out.println(customerShoppingCart.items.size());
+        //System.out.println(customerShoppingCart.displayItemPrice(itemDisplay.getSelectionModel().getSelectedItem().toString()));
+        System.out.println(customerShoppingCart.getSumTotal());
+
+
+
+
 
 
     }
