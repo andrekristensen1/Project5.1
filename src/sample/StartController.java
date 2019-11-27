@@ -28,6 +28,9 @@ public class StartController extends ItemList  {
     ListView itemDisplay;
 
     @FXML
+    Label subTotal;
+
+    @FXML
     public void searchForItem(ActionEvent event) throws SQLException {
 
         displayItems(ShopsItemList.getItems(itemSearch), itemDisplay);
@@ -35,6 +38,7 @@ public class StartController extends ItemList  {
 
     }
 
+    @FXML
     public void itemClickedAdd(MouseEvent mouseEvent) {
         //customerShoppingCart.add(itemDisplay.getSelectionModel().getSelectedItem());
         //shoppingCartView.setItems(FXCollections.observableArrayList(customerShoppingCart.add(itemDisplay.getSelectionModel().getSelectedItem())));
@@ -45,20 +49,19 @@ public class StartController extends ItemList  {
         System.out.println(customerShoppingCart.items.size());
         //System.out.println(customerShoppingCart.displayItemPrice(itemDisplay.getSelectionModel().getSelectedItem().toString()));
         System.out.println(customerShoppingCart.getSumTotal());
-
-
-
-
+        subTotal.setText("Pris: " + String.valueOf(customerShoppingCart.getSumTotal()) + " kr. ");
 
 
     }
-
+    @FXML
     public void ItemClickedRemove(MouseEvent mouseEvent) {
 
         customerShoppingCart.items.remove(itemDisplay.getSelectionModel().getSelectedItem());
         customerShoppingCart.displayShoppingcart(shoppingCartView);
 
         System.out.println(customerShoppingCart.items.size());
+        System.out.println(customerShoppingCart.getSumTotal());
+        subTotal.setText("Pris: " + String.valueOf(customerShoppingCart.getSumTotal()) + " kr. ");
 
     }
 }

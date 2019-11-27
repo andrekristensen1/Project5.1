@@ -95,6 +95,7 @@ public class JDBCConnection {
 
     public float findItemPrice(String chosenItem){
         float itemPrice =0;
+        //Fix nedenstående hardcode
         String itemPriceString = chosenItem.substring(chosenItem.length()-5);
         itemPrice = Float.parseFloat(itemPriceString);
         return itemPrice;

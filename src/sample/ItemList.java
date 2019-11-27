@@ -81,8 +81,6 @@ public class ItemList {
             sumTotal = sumTotal + m.retriever.findItemPrice(items.get(i).toString());
         }
 
-
-
        return sumTotal;
 
     }
