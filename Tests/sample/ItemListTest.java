@@ -9,13 +9,13 @@ import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
 
-public class ShoppingcartTest {
+public class ItemListTest {
 
 
     @Test
     public void newCartShouldHaveZero(){
 
-        Shoppingcart cart = new Shoppingcart();
+        ItemList cart = new ItemList();
         int result = cart.getItemCount();
 
         assertEquals(0, result);

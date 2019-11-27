@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -29,8 +28,8 @@
          <font>
             <Font name="Avenir Light" size="13.0" />
          </font></Button>
-      <TextArea fx:id="listDisplay" layoutX="286.0" layoutY="259.0" prefHeight="200.0" prefWidth="200.0" />
       <ListView fx:id="itemDisplay" layoutX="35.0" layoutY="166.0" onMouseClicked="#itemClicked" prefHeight="200.0" prefWidth="200.0" />
       <TextField fx:id="itemSearch" layoutX="55.0" layoutY="117.0" promptText="Søg vare..." />
+      <ListView fx:id="shoppingCartView" layoutX="273.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
