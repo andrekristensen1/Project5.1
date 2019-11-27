@@ -22,12 +22,6 @@ public class StartController extends ItemList  {
     Button searchBtn;
 
     @FXML
-    Button addBtn;
-
-    @FXML
-    Button removeBtn;
-
-    @FXML
     ListView shoppingCartView;
 
     @FXML
@@ -41,18 +35,24 @@ public class StartController extends ItemList  {
 
     }
 
-    public void itemClicked(MouseEvent mouseEvent) {
+    public void itemClickedAdd(MouseEvent mouseEvent) {
         //customerShoppingCart.add(itemDisplay.getSelectionModel().getSelectedItem());
         //shoppingCartView.setItems(FXCollections.observableArrayList(customerShoppingCart.add(itemDisplay.getSelectionModel().getSelectedItem())));
-
-        System.out.println(customerShoppingCart.items.size());
 
         customerShoppingCart.items.add(itemDisplay.getSelectionModel().getSelectedItem());
         customerShoppingCart.displayShoppingcart(shoppingCartView);
 
+        System.out.println(customerShoppingCart.items.size());
 
 
+    }
 
+    public void ItemClickedRemove(MouseEvent mouseEvent) {
+
+        customerShoppingCart.items.remove(itemDisplay.getSelectionModel().getSelectedItem());
+        customerShoppingCart.displayShoppingcart(shoppingCartView);
+
+        System.out.println(customerShoppingCart.items.size());
 
     }
 }

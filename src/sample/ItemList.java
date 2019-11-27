@@ -41,17 +41,18 @@ public class ItemList {
     }
 
 
-    public void add(Object item) {
+   /* public void add(Object item) {
 
         ItemList customerShoppingCart = new ItemList();
 
 
 
-    }
+    }*/
 
    public void displayShoppingcart(ListView ShoppingCartDisplay){
 
         ShoppingCartDisplay.setItems(FXCollections.observableList(this.items));
+
 
    }
 

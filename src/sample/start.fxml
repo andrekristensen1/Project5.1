@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
@@ -10,26 +10,26 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #bccbcb;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StartController">
    <children>
-      <Button fx:id="addBtn" layoutX="313.0" layoutY="166.0" mnemonicParsing="false" text="Tilføj vare">
-         <font>
-            <Font name="Avenir Light" size="13.0" />
-         </font></Button>
-      <Button fx:id="removeBtn" layoutX="313.0" layoutY="206.0" mnemonicParsing="false" text="Fjern vare">
-         <font>
-            <Font name="Avenir Light" size="13.0" />
-         </font></Button>
       <Label layoutX="195.0" layoutY="38.0" prefHeight="29.0" prefWidth="123.0" text="Indkøbsliste" textFill="#4d4d4d">
          <font>
             <Font name="Avenir Light" size="22.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="313.0" layoutY="95.0" prefWidth="150.0" />
-      <Button fx:id="searchBtn" layoutX="313.0" layoutY="130.0" mnemonicParsing="false" onAction="#searchForItem" text="Søg">
+      <Button fx:id="searchBtn" layoutX="215.0" layoutY="81.0" mnemonicParsing="false" onAction="#searchForItem" text="Søg">
          <font>
             <Font name="Avenir Light" size="13.0" />
          </font></Button>
-      <ListView fx:id="itemDisplay" layoutX="35.0" layoutY="166.0" onMouseClicked="#itemClicked" prefHeight="200.0" prefWidth="200.0" />
-      <TextField fx:id="itemSearch" layoutX="55.0" layoutY="117.0" promptText="Søg vare..." />
-      <ListView fx:id="shoppingCartView" layoutX="273.0" layoutY="250.0" prefHeight="200.0" prefWidth="200.0" />
+      <ListView fx:id="itemDisplay" layoutX="35.0" layoutY="166.0" onMouseClicked="#itemClickedAdd" prefHeight="307.0" prefWidth="200.0" />
+      <TextField fx:id="itemSearch" layoutX="35.0" layoutY="82.0" promptText="Søg vare..." />
+      <ListView fx:id="shoppingCartView" layoutX="259.0" layoutY="166.0" onMouseClicked="#ItemClickedRemove" prefHeight="307.0" prefWidth="200.0" />
+      <Label layoutX="68.0" layoutY="143.0" prefHeight="17.0" prefWidth="108.0" text="Butikkens vareliste" textFill="#4d4d4d">
+         <font>
+            <Font name="Avenir Light" size="13.0" />
+         </font></Label>
+      <Label layoutX="305.0" layoutY="143.0" prefHeight="19.0" prefWidth="108.0" text="Min indkøbsliste" textFill="#4d4d4d">
+         <font>
+            <Font name="Avenir Light" size="13.0" />
+         </font></Label>
+      <ComboBox layoutX="284.0" layoutY="82.0" prefWidth="150.0" promptText="Varekategori" />
    </children>
 </AnchorPane>
