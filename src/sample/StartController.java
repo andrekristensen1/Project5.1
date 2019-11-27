@@ -35,15 +35,20 @@ public class StartController extends ItemList  {
 
     @FXML
     public void searchForItem(ActionEvent event) throws SQLException {
+
         displayItems(ShopsItemList.getItems(itemSearch), itemDisplay);
+
 
     }
 
     public void itemClicked(MouseEvent mouseEvent) {
         //customerShoppingCart.add(itemDisplay.getSelectionModel().getSelectedItem());
         //shoppingCartView.setItems(FXCollections.observableArrayList(customerShoppingCart.add(itemDisplay.getSelectionModel().getSelectedItem())));
-        itemDisplay.getSelectionModel().getSelectedItems();
-        System.out.println("add");
+
+        System.out.println(customerShoppingCart.items.size());
+
+        customerShoppingCart.items.add(itemDisplay.getSelectionModel().getSelectedItem());
+        customerShoppingCart.displayShoppingcart(shoppingCartView);
 
 
 

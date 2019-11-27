@@ -12,7 +12,8 @@ import java.util.ArrayList;
 public class ItemList {
     public Object item;
     Model m = Model.getInstance();
-    ArrayList<String> items;
+    ArrayList<Object> items;
+
 
     public ItemList(){
         items = new ArrayList<>();
@@ -28,6 +29,7 @@ public class ItemList {
         ResultSet res = m.retriever.plainstatement(searchOutput.getText(), m.getConnection());
         return res;
 
+
     }
 
 
@@ -39,18 +41,19 @@ public class ItemList {
     }
 
 
-   /* public void add(Object item) {
+    public void add(Object item) {
 
-        this.add(item);
+        ItemList customerShoppingCart = new ItemList();
+
 
 
     }
 
-   public void displayShoppingcart(Object item){
+   public void displayShoppingcart(ListView ShoppingCartDisplay){
 
+        ShoppingCartDisplay.setItems(FXCollections.observableList(this.items));
 
-
-   }*/
+   }
 
     public void remove(int index) {
 
