@@ -9,7 +9,7 @@ import javafx.scene.input.MouseEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class StartController extends ItemList  {
+public class StartController extends ItemList {
 
     ItemList customerShoppingCart = new ItemList();
     ItemList ShopsItemList = new ItemList();
@@ -43,14 +43,16 @@ public class StartController extends ItemList  {
 
     @FXML
     public void itemClickedAdd(MouseEvent mouseEvent) {
-        customerShoppingCart.items.add(itemDisplay.getSelectionModel().getSelectedItem());
-        customerShoppingCart.updateShoppingcart(shoppingCartView, subTotal,listSize);
-
-
+        //If statement håndterer at null ikke kan tilføjes til shoppingcart
+        if (itemDisplay.getSelectionModel().getSelectedItem() != null){
+            customerShoppingCart.items.add(itemDisplay.getSelectionModel().getSelectedItem());
+            customerShoppingCart.updateShoppingcart(shoppingCartView, subTotal, listSize);
+           }
     }
+
     @FXML
     public void ItemClickedRemove(MouseEvent mouseEvent) {
         customerShoppingCart.items.remove(shoppingCartView.getSelectionModel().getSelectedItem());
-        customerShoppingCart.updateShoppingcart(shoppingCartView, subTotal,listSize);
+        customerShoppingCart.updateShoppingcart(shoppingCartView, subTotal, listSize);
     }
 }

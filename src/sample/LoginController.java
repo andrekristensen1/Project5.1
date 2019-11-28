@@ -27,6 +27,7 @@ public class LoginController implements Initializable {
 
     /**
      * Metode til handling ved tryk på loginknappen.
+     *
      * @param event tryk på loginknap
      * @throws IOException
      */
@@ -48,6 +49,7 @@ public class LoginController implements Initializable {
 
     /**
      * Metode der skal håndtere registrering af ny bruger. ikke færdig
+     *
      * @param event
      */
     @FXML

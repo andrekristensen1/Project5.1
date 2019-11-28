@@ -22,7 +22,7 @@ public class ItemList {
     /**
      * Constructor som laver en arrayliste
      */
-    public ItemList(){
+    public ItemList() {
         items = new ArrayList<>();
     }
 
@@ -43,7 +43,8 @@ public class ItemList {
 
     /**
      * Metode der viser de indhentede items i vores GUI
-     * @param res resultset med varer som er hentet fra databasen
+     *
+     * @param res         resultset med varer som er hentet fra databasen
      * @param itemDisplay stedet hvor varerne skal vises i GUI
      * @throws SQLException
      */
@@ -54,16 +55,18 @@ public class ItemList {
 
     /**
      * Viser vores shoppingcart i GUI
+     *
      * @param ShoppingCartDisplay stedet hvor shoppingcart skal vises
      */
 
-   public void displayShoppingcart(ListView ShoppingCartDisplay){
+    public void displayShoppingcart(ListView ShoppingCartDisplay) {
 
         ShoppingCartDisplay.setItems(FXCollections.observableList(this.items));
-   }
+    }
 
     /**
      * Finder størrelsen på en given liste af items
+     *
      * @return størrelse på liste
      */
     public int getItemCount() {
@@ -82,25 +85,27 @@ public class ItemList {
 
     /**
      * Finder totalsummen på en liste af varer
+     *
      * @return totalsummen
      */
-    public float getSumTotal(){
-       float sumTotal =0;
+    public float getSumTotal() {
+        float sumTotal = 0;
 
-        for (int i = 0; i <items.size() ; i++) {
+        for (int i = 0; i < items.size(); i++) {
             sumTotal = sumTotal + this.findItemPrice(items.get(i).toString());
         }
-       return sumTotal;
+        return sumTotal;
     }
 
     /**
      * Metode der opdaterer en liste af items. Viser den i GUI, opdaterer samlet pris og antal af items.
+     *
      * @param shoppingCartView stedet hvor en liste af items skal vises i GUI
-     * @param subTotal Stedet hvor totalsummen skal vises i GUI
-     * @param listSize Stedet hvor antallet af items skal vises i GUI
+     * @param subTotal         Stedet hvor totalsummen skal vises i GUI
+     * @param listSize         Stedet hvor antallet af items skal vises i GUI
      */
 
-    public void updateShoppingcart(ListView shoppingCartView, Label subTotal, Label listSize){
+    public void updateShoppingcart(ListView shoppingCartView, Label subTotal, Label listSize) {
         this.displayShoppingcart(shoppingCartView);
         subTotal.setText("Pris: " + String.valueOf(this.getSumTotal()) + " kr. ");
         listSize.setText("Antal varer: " + this.items.size());
@@ -108,10 +113,11 @@ public class ItemList {
 
     /**
      * Finder prisen på et item
+     *
      * @param chosenItem et valgt item
      * @return pris som float
      */
-    public float findItemPrice(String chosenItem){
+    public float findItemPrice(String chosenItem) {
         float itemPrice = Float.valueOf(chosenItem.replaceAll("[^\\d.]", " "));
         return itemPrice;
     }
