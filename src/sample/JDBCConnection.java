@@ -6,17 +6,17 @@ import javafx.scene.control.TextArea;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * En klasse til at arbejde med databasen og køre querys
+ */
+
 public class JDBCConnection {
-
-
-    //URL'en til når vi skal bruge den
-    //String url = "jdbc:sqlite:/Users/bruger/Desktop/RUC/5. semester/Software Development/Plan&Buy.db";
 
     private String message;
 
     /**
      * Kalder en connection metode som returnerer et connection objekt.
-     *          Dette objekt skaber en connection til vores URL
+     * Dette objekt skaber en connection til vores URL
      * @param url
      * @return
      * @throws SQLException
@@ -24,7 +24,6 @@ public class JDBCConnection {
 
     public Connection connect(String url)
             throws SQLException {
-
         return DriverManager.getConnection(url);
     }
 
@@ -86,19 +85,19 @@ public class JDBCConnection {
             String foundBrand = res.getString("ItemBrand");
             message = (foundBrand + " " + foundItem + ": " + foundPrice);
             itemList.add(message);
-
-
-
         }
         return itemList;
     }
 
-    public float findItemPrice(String chosenItem){
-        float itemPrice =0;
-        //Fix nedenstående hardcode
-        String itemPriceString = chosenItem.substring(chosenItem.length()-5);
-        itemPrice = Float.parseFloat(itemPriceString);
+    /**
+     *  Metode der tager vores item ind (String), fjerner alle non-numeriske karakterer og returnerer en float
+     * @param chosenItem et valgt objekt som er et item
+     * @return prisen på det valgte item
+     */
+
+   /*public float findItemPrice(String chosenItem){
+        float itemPrice = Float.valueOf(chosenItem.replaceAll("[^\\d.]", " "));
         return itemPrice;
-    }
+    }           */
 
 }

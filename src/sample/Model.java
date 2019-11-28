@@ -29,6 +29,12 @@ class Model {
         return inst;
     }
 
+    /**
+     * Metode der opretter forbindelse til en database i den givne url
+     * @return conn som er Connection objektet der forbinder til databasen
+     * @throws SQLException
+     */
+
     public Connection getConnection() throws SQLException {
 
         Connection conn = null;
