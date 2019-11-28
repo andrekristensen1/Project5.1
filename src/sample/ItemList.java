@@ -74,6 +74,8 @@ public class ItemList {
 
     }
 
+
+    //Regner den totalsum
     public float getSumTotal(){
        float sumTotal =0;
 

@@ -10,18 +10,22 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #bccbcb;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StartController">
    <children>
-      <Label layoutX="195.0" layoutY="38.0" prefHeight="29.0" prefWidth="123.0" text="Indkøbsliste" textFill="#4d4d4d">
+      
+      <Label layoutX="182.0" layoutY="26.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="108.0" text="Indkøbsliste" textFill="#4d4d4d">
          <font>
-            <Font name="Avenir Light" size="22.0" />
+            <Font name="SignPainter-HouseScript" size="29.0" />
          </font>
       </Label>
-      <Button fx:id="searchBtn" layoutX="215.0" layoutY="81.0" mnemonicParsing="false" onAction="#searchForItem" text="Søg">
+      <Button fx:id="searchBtn" blendMode="HARD_LIGHT" layoutX="176.0" layoutY="96.0" mnemonicParsing="false" onAction="#searchForItem" prefHeight="27.0" prefWidth="36.0" style="-fx-background-radius: 2px;" text="Søg" textFill="#4d4d4d">
          <font>
-            <Font name="Avenir Light" size="13.0" />
+            <Font name="Avenir Light" size="10.0" />
          </font></Button>
-      <ListView fx:id="itemDisplay" layoutX="35.0" layoutY="166.0" onMouseClicked="#itemClickedAdd" prefHeight="307.0" prefWidth="200.0" />
-      <TextField fx:id="itemSearch" layoutX="35.0" layoutY="82.0" promptText="Søg vare..." />
-      <ListView fx:id="shoppingCartView" layoutX="259.0" layoutY="166.0" onMouseClicked="#ItemClickedRemove" prefHeight="307.0" prefWidth="200.0" />
+      <ListView fx:id="itemDisplay" layoutX="35.0" layoutY="166.0" onMouseClicked="#itemClickedAdd" prefHeight="307.0" prefWidth="200.0" style="-fx-background-radius: 2px; -fx-border-color: #a4a4a4; -fx-border-radius: 2px;" />
+      <TextField fx:id="itemSearch" blendMode="HARD_LIGHT" layoutX="33.0" layoutY="96.0" prefHeight="27.0" prefWidth="131.0" promptText="Søg vare...">
+         <font>
+            <Font name="Avenir Light" size="10.0" />
+         </font></TextField>
+      <ListView fx:id="shoppingCartView" layoutX="259.0" layoutY="166.0" onMouseClicked="#ItemClickedRemove" prefHeight="307.0" prefWidth="200.0" style="-fx-background-radius: 2px; -fx-border-color: #a4a4a4; -fx-border-radius: 2px;" />
       <Label layoutX="68.0" layoutY="143.0" prefHeight="17.0" prefWidth="108.0" text="Butikkens vareliste" textFill="#4d4d4d">
          <font>
             <Font name="Avenir Light" size="13.0" />
@@ -30,7 +34,16 @@
          <font>
             <Font name="Avenir Light" size="13.0" />
          </font></Label>
-      <ComboBox layoutX="284.0" layoutY="82.0" prefWidth="150.0" promptText="Varekategori" />
-      <Label fx:id="subTotal" layoutX="391.0" layoutY="478.0" text="Subtotal" />
+      <ComboBox blendMode="HARD_LIGHT" layoutX="284.0" layoutY="96.0" prefWidth="150.0" promptText="Varekategori" />
+
+      <Label fx:id="subTotal" layoutX="391.0" layoutY="478.0" text="Subtotal" textFill="#4d4d4d">
+         <font>
+            <Font name="Avenir Light" size="10.0" />
+         </font></Label>
+      <Label layoutX="292.0" layoutY="35.0" prefHeight="27.0" prefWidth="27.0" style="-fx-background-color: #a1bfbf; -fx-background-radius: 50px; -fx-border-color: #4d4d4d; -fx-border-radius: 50px;" text=" Plan &amp; Buy" textAlignment="CENTER" textFill="#4d4d4d">
+         <font>
+            <Font name="SignPainter-HouseScript" size="6.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -44,11 +44,14 @@ public class StartController extends ItemList  {
         //shoppingCartView.setItems(FXCollections.observableArrayList(customerShoppingCart.add(itemDisplay.getSelectionModel().getSelectedItem())));
 
         customerShoppingCart.items.add(itemDisplay.getSelectionModel().getSelectedItem());
+
         customerShoppingCart.displayShoppingcart(shoppingCartView);
 
         System.out.println(customerShoppingCart.items.size());
         //System.out.println(customerShoppingCart.displayItemPrice(itemDisplay.getSelectionModel().getSelectedItem().toString()));
         System.out.println(customerShoppingCart.getSumTotal());
+
+
         subTotal.setText("Pris: " + String.valueOf(customerShoppingCart.getSumTotal()) + " kr. ");
 
 
@@ -56,7 +59,8 @@ public class StartController extends ItemList  {
     @FXML
     public void ItemClickedRemove(MouseEvent mouseEvent) {
 
-        customerShoppingCart.items.remove(itemDisplay.getSelectionModel().getSelectedItem());
+        customerShoppingCart.items.remove(shoppingCartView.getSelectionModel().getSelectedItem());
+
         customerShoppingCart.displayShoppingcart(shoppingCartView);
 
         System.out.println(customerShoppingCart.items.size());
