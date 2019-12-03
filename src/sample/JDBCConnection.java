@@ -56,12 +56,13 @@ public class JDBCConnection {
 
 
     //Søgealgoritme her!
+
     public ResultSet plainstatement(String ItemType, Connection conn)
             throws SQLException {
         String query = " select Item.ItemName AS ItemName, item.ItemBrand AS ItemBrand, Item.price AS price, Item.ItemQuantity AS Quantity from Item" +
                 " Where ItemType = '" + ItemType + "'";
-        Statement stmt = null;
-        ResultSet res = null;
+        Statement stmt;
+        ResultSet res;
         stmt = conn.createStatement();
         res = stmt.executeQuery(query);
         return res;

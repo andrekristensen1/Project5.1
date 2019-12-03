@@ -33,11 +33,11 @@ public class StartController extends ItemList {
     @FXML
     Label listSize;
 
+
     @FXML
     public void searchForItem(ActionEvent event) throws SQLException {
 
         displayItems(ShopsItemList.getItems(itemSearch), itemDisplay);
-
 
     }
 
