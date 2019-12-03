@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #bccbcb;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PaymentController">
+   <children>
+      <Button layoutX="273.0" layoutY="120.0" mnemonicParsing="false" text="Betal" />
+      <Label fx:id="subTotal" layoutX="270.0" layoutY="175.0" text="At Betale " />
+      <Button layoutX="30.0" layoutY="66.0" mnemonicParsing="false" onAction="#startReturn" text="Tilbage" />
+   </children>
+</AnchorPane>

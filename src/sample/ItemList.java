@@ -33,9 +33,7 @@ public class ItemList {
      * @throws SQLException
      */
     public ResultSet getItems(TextField searchOutput) throws SQLException {
-
-        //Kør query når der trykkes på søgknappen
-        PreparedStatement pstmt = m.retriever.selectpreparedstatement(m.getConnection());
+        PreparedStatement pstmt = m.retriever.selectpreparedstatement(m.getConnection());                               //Kør query når der trykkes på søgknappen
         pstmt.setString(1, searchOutput.getText());
         ResultSet res = m.retriever.plainstatement(searchOutput.getText(), m.getConnection());
         return res;
@@ -49,7 +47,6 @@ public class ItemList {
      * @throws SQLException
      */
     public void displayItems(ResultSet res, ListView itemDisplay) throws SQLException {
-
         itemDisplay.setItems(FXCollections.observableArrayList(m.retriever.presentItem(res)));
     }
 
@@ -58,20 +55,10 @@ public class ItemList {
      *
      * @param ShoppingCartDisplay stedet hvor shoppingcart skal vises
      */
-
     public void displayShoppingcart(ListView ShoppingCartDisplay) {
-
         ShoppingCartDisplay.setItems(FXCollections.observableList(this.items));
     }
 
-    /**
-     * Finder størrelsen på en given liste af items
-     *
-     * @return størrelse på liste
-     */
-    public int getItemCount() {
-        return items.size();
-    }
 
 
     /*public float displayItemPrice(String chosenItem){
