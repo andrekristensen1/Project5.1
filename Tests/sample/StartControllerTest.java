@@ -55,6 +55,17 @@ public class StartControllerTest extends ItemList {
     }
 
     @Test
-    public void itemClickedRemove() {
+    public void itemClickedRemove() throws SQLException {
+        ArrayList<String> customerShoppingCartTest = new ArrayList<>();
+        ResultSet expected = m.retriever.plainstatement("Rugbrød", conn);
+        ArrayList<String> itemListTest = m.retriever.presentItem(expected);
+
+        customerShoppingCartTest.add(itemListTest.get(0));
+        customerShoppingCartTest.add(itemListTest.get(1));
+        customerShoppingCartTest.remove(0);
+
+        assertEquals(customerShoppingCartTest.size(), 1);
+
+        System.out.println(customerShoppingCartTest.size());
     }
 }
