@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.2.1 on tor. nov. 28 09:13:21 2019
+-- File generated with SQLiteStudio v3.2.1 on fre. nov. 29 12:33:13 2019
 --
 -- Text encoding used: UTF-8
 --
@@ -92,6 +92,142 @@ INSERT INTO Item (
                      15
                  );
 
+INSERT INTO Item (
+                     ItemID,
+                     Price,
+                     ItemBrand,
+                     ItemType,
+                     ItemName,
+                     ItemQuantity
+                 )
+                 VALUES (
+                     '2,0',
+                     10.5,
+                     'Arla',
+                     'Mælk',
+                     'Skummetmælk',
+                     10
+                 );
+
+INSERT INTO Item (
+                     ItemID,
+                     Price,
+                     ItemBrand,
+                     ItemType,
+                     ItemName,
+                     ItemQuantity
+                 )
+                 VALUES (
+                     '2,1',
+                     11.75,
+                     'Løgismose',
+                     'Mælk',
+                     'Sødmælk',
+                     20
+                 );
+
+INSERT INTO Item (
+                     ItemID,
+                     Price,
+                     ItemBrand,
+                     ItemType,
+                     ItemName,
+                     ItemQuantity
+                 )
+                 VALUES (
+                     '3,0',
+                     30.5,
+                     'Landlyst',
+                     'Oksekød',
+                     'Hakket Oksekød',
+                     21
+                 );
+
+INSERT INTO Item (
+                     ItemID,
+                     Price,
+                     ItemBrand,
+                     ItemType,
+                     ItemName,
+                     ItemQuantity
+                 )
+                 VALUES (
+                     '3,1',
+                     80.0,
+                     'Danish Crown',
+                     'Oksekød',
+                     'Okse Mørbrad',
+                     17
+                 );
+
+INSERT INTO Item (
+                     ItemID,
+                     Price,
+                     ItemBrand,
+                     ItemType,
+                     ItemName,
+                     ItemQuantity
+                 )
+                 VALUES (
+                     '4,0',
+                     15.0,
+                     'Urtekram',
+                     'Bønner',
+                     'Kidney Bønner',
+                     1
+                 );
+
+INSERT INTO Item (
+                     ItemID,
+                     Price,
+                     ItemBrand,
+                     ItemType,
+                     ItemName,
+                     ItemQuantity
+                 )
+                 VALUES (
+                     '4,1',
+                     17.75,
+                     'Bonduelle',
+                     'Bønner',
+                     'Sorte Bønner',
+                     2
+                 );
+
+INSERT INTO Item (
+                     ItemID,
+                     Price,
+                     ItemBrand,
+                     ItemType,
+                     ItemName,
+                     ItemQuantity
+                 )
+                 VALUES (
+                     '5,0',
+                     11.95,
+                     'Levevis',
+                     'Bær',
+                     'Jordbær',
+                     4
+                 );
+
+INSERT INTO Item (
+                     ItemID,
+                     Price,
+                     ItemBrand,
+                     ItemType,
+                     ItemName,
+                     ItemQuantity
+                 )
+                 VALUES (
+                     '5,1',
+                     12.5,
+                     'Levevis',
+                     'Bær',
+                     'Blåbær',
+                     3
+                 );
+
 
 -- Table: ItemCategory
 DROP TABLE IF EXISTS ItemCategory;
@@ -111,6 +247,61 @@ INSERT INTO ItemCategory (
                              'Rugbrød',
                              1,
                              'Brød'
+                         );
+
+INSERT INTO ItemCategory (
+                             ItemType,
+                             ItemCategoryID,
+                             ItemCategoryName
+                         )
+                         VALUES (
+                             'Mælk',
+                             2,
+                             'Mejeri'
+                         );
+
+INSERT INTO ItemCategory (
+                             ItemType,
+                             ItemCategoryID,
+                             ItemCategoryName
+                         )
+                         VALUES (
+                             'Oksekød',
+                             3,
+                             'Kød'
+                         );
+
+INSERT INTO ItemCategory (
+                             ItemType,
+                             ItemCategoryID,
+                             ItemCategoryName
+                         )
+                         VALUES (
+                             'Bønner',
+                             4,
+                             'Konserves'
+                         );
+
+INSERT INTO ItemCategory (
+                             ItemType,
+                             ItemCategoryID,
+                             ItemCategoryName
+                         )
+                         VALUES (
+                             'Svinekød',
+                             3,
+                             'Kød'
+                         );
+
+INSERT INTO ItemCategory (
+                             ItemType,
+                             ItemCategoryID,
+                             ItemCategoryName
+                         )
+                         VALUES (
+                             'Bær',
+                             5,
+                             'Frost'
                          );
 
 
