@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PaymentController extends StartController {
+public class PaymentController extends Payment {
 
     StartController startController = new StartController();
     ItemList customerShoppingcart = startController.passShoppingcart();
@@ -25,6 +25,8 @@ public class PaymentController extends StartController {
     Label subTotal;
 
 
+
+
     public void startReturn(ActionEvent event) throws IOException {
 
         AnchorPane newAnchor = FXMLLoader.load(getClass().getResource("start.fxml"));                             //Opretter startPageParent og henter start-siden, som der skal skiftes til
@@ -34,5 +36,7 @@ public class PaymentController extends StartController {
         app_stage.show();
 
     }
+
+
 
 }

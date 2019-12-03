@@ -45,4 +45,9 @@ class Model {
         return conn;
     }
 
+    public void closeConnection() throws SQLException {
+
+        this.getConnection().close();
+    }
+
 }

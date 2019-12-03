@@ -36,6 +36,7 @@ public class ItemList {
         PreparedStatement pstmt = m.retriever.selectpreparedstatement(m.getConnection());                               //Kør query når der trykkes på søgknappen
         pstmt.setString(1, searchOutput.getText());
         ResultSet res = m.retriever.plainstatement(searchOutput.getText(), m.getConnection());
+        m.closeConnection();
         return res;
     }
 
