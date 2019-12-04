@@ -50,4 +50,8 @@ class Model {
         this.getConnection().close();
     }
 
+    public void clear() {
+        inst = null;
+    }
+
 }

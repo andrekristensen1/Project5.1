@@ -56,7 +56,6 @@ public class StartControllerTest extends ItemList {
         customerShoppingCartTest.add(itemListTest.get(1));
         customerShoppingCartTest.remove(0);
         assertEquals(customerShoppingCartTest.size(), 1);
-
         System.out.println(customerShoppingCartTest.size());
     }
 }

@@ -60,7 +60,7 @@ public class StartController extends ItemList {
     }
 
     @FXML
-    public void pay(ActionEvent event) throws IOException {
+    public void pay(ActionEvent event) throws IOException, SQLException {
 
         if (customerShoppingCart.items.size() != 0) {
             FXMLLoader loader = new FXMLLoader();
@@ -70,7 +70,9 @@ public class StartController extends ItemList {
 
             PaymentController controller = loader.getController();
             controller.getShoppingcartInfo(customerShoppingCart);
-
+            //De to linjer nedenfor er nye
+            m.closeConnection();
+            m.clear();
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             app_stage.setScene(payScene);
             app_stage.show();

@@ -11,6 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -22,13 +23,14 @@ public class PaymentController extends Payment {
     ItemList customerShoppingcart = new ItemList();
     Payment customerPayment = new Payment();
 
-
-
     @FXML
     Label subTotal;
 
     @FXML
     ListView finalShoppingcart;
+
+
+
 
 
 
@@ -42,15 +44,26 @@ public class PaymentController extends Payment {
     }
 
     @FXML
-    public void finalPayBtn(ActionEvent event) {
+    public void finalPayBtn(ActionEvent event) throws SQLException {
+        Float updatedBalanceCustomer = customerPayment.calculateNewBalanceCustomer(customerPayment.retrieveBalance(1), customerPayment.returnSubTotal(subTotal));
+        Float updatedBalanceStore = customerPayment.calculateNewBalanceStore(customerPayment.retrieveBalance(2), customerPayment.returnSubTotal(subTotal));
+        System.out.println(updatedBalanceCustomer);
+        System.out.println(updatedBalanceStore);
+        //Disse to nedenstående er nye
+        //customerPayment.updateBalance(1, updatedBalanceCustomer, 2, 1);
+        //customerPayment.updateBalance(1, updatedBalanceStore, 2, 2);
+
 
     }
+
 
     public void getShoppingcartInfo(ItemList shoppingCart){
 
         subTotal.setText("Sum total: " + String.valueOf(shoppingCart.getSumTotal()));
         shoppingCart.displayShoppingcart(finalShoppingcart);
+
     }
+
 
 
 

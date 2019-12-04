@@ -67,6 +67,31 @@ public class JDBCConnection {
         return res;
     }
 
+    public ResultSet getBalanceStatement(int profileID, Connection conn) throws SQLException{
+        String query = " select BankAccount.Balance AS Balance from BankAccount" +
+                " Where ProfileID = '" + profileID + "'";
+
+        Statement stmt = null;
+        ResultSet res = null;
+        stmt = conn.createStatement();
+        res = stmt.executeQuery(query);
+        return res;
+
+    }
+
+    public PreparedStatement updateBalanceProfile(Connection conn) throws SQLException {
+        String updateQuery = "UPDATE BankAccount" +
+                " SET Balance = ? " +
+                " WHERE ProfileID = ? ";
+        PreparedStatement updateStmt = null;
+        updateStmt = conn.prepareStatement(updateQuery);
+        return updateStmt;
+    }
+
+
+
+
+
     /**
      * Metode der præsenterer den indhentede data fra databasen
      *

@@ -49,6 +49,7 @@ public class ItemList {
      */
     public void displayItems(ResultSet res, ListView itemDisplay) throws SQLException {
         itemDisplay.setItems(FXCollections.observableArrayList(m.retriever.presentItem(res)));
+
     }
 
     /**
@@ -109,6 +110,8 @@ public class ItemList {
         float itemPrice = Float.valueOf(chosenItem.replaceAll("[^\\d.]", " "));
         return itemPrice;
     }
+
+
 
 
 }
