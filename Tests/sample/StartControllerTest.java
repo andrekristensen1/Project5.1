@@ -44,10 +44,6 @@ public class StartControllerTest extends ItemList {
         assertEquals(customerShoppingcartTest.get(0), itemListTest.get(0));
         System.out.println(customerShoppingcartTest.get(0));
         System.out.println(itemListTest.get(0));
-
-
-
-
     }
 
     @Test
@@ -59,7 +55,6 @@ public class StartControllerTest extends ItemList {
         customerShoppingCartTest.add(itemListTest.get(0));
         customerShoppingCartTest.add(itemListTest.get(1));
         customerShoppingCartTest.remove(0);
-
         assertEquals(customerShoppingCartTest.size(), 1);
 
         System.out.println(customerShoppingCartTest.size());

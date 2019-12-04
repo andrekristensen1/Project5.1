@@ -63,15 +63,29 @@ public class StartController extends ItemList {
     public void pay(ActionEvent event) throws IOException {
 
         if (customerShoppingCart.items.size() != 0) {
-            AnchorPane newAnchor = FXMLLoader.load(getClass().getResource("Payment.fxml"));                       //Opretter startPageParent og henter start-siden, som der skal skiftes til
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("Payment.fxml"));
+            AnchorPane newAnchor = loader.load();
+            Scene payScene = new Scene(newAnchor);
+
+            PaymentController controller = loader.getController();
+            controller.getShoppingcartInfo(customerShoppingCart);
+
+            Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            app_stage.setScene(payScene);
+            app_stage.show();
+
+
+
+
+            /*AnchorPane newAnchor = FXMLLoader.load(getClass().getResource("Payment.fxml"));                       //Opretter startPageParent og henter start-siden, som der skal skiftes til
             Scene startPageScene1 = new Scene(newAnchor);                                                               //Skaber en ny scene
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();                                //Henter information fra vores Stage til den nye Scene
             app_stage.setScene(startPageScene1);                                                                        //Viser den nye scene som er start-siden
-            app_stage.show();
+            app_stage.show();*/
+
         }
     }
 
-    public ItemList passShoppingcart (){
-        return customerShoppingCart;
-    }
+
 }

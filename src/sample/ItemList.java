@@ -77,12 +77,12 @@ public class ItemList {
      * @return totalsummen
      */
     public float getSumTotal() {
-        float sumTotal = 0;
+            float sumTotal = 0;
 
-        for (int i = 0; i < items.size(); i++) {
-            sumTotal = sumTotal + this.findItemPrice(items.get(i).toString());
-        }
-        return sumTotal;
+            for (int i = 0; i < items.size(); i++) {
+                sumTotal = sumTotal + this.findItemPrice(items.get(i).toString());
+            }
+            return sumTotal;
     }
 
     /**
@@ -109,6 +109,7 @@ public class ItemList {
         float itemPrice = Float.valueOf(chosenItem.replaceAll("[^\\d.]", " "));
         return itemPrice;
     }
+
 
 }
 
