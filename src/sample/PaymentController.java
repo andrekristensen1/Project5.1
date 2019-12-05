@@ -49,9 +49,9 @@ public class PaymentController extends Payment {
         Float updatedBalanceStore = customerPayment.calculateNewBalanceStore(customerPayment.retrieveBalance(2), customerPayment.returnSubTotal(subTotal));
         System.out.println(updatedBalanceCustomer);
         System.out.println(updatedBalanceStore);
-        //Disse to nedenstående er nye
-        //customerPayment.updateBalance(1, updatedBalanceCustomer, 2, 1);
-        //customerPayment.updateBalance(1, updatedBalanceStore, 2, 2);
+        customerPayment.executeUpdateBalance(updatedBalanceCustomer, 1);
+        customerPayment.executeUpdateBalance(updatedBalanceStore, 2);
+
 
 
     }

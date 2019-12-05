@@ -42,6 +42,7 @@ class Model {
         Connection conn = null;
         String url = "jdbc:sqlite:/Users/williamkilschowpetersen/Documents/5. Semester RUC/Software Development/databaser/PlanAndBuy.db";
         conn = this.retriever.connect(url);
+
         return conn;
     }
 
@@ -53,5 +54,6 @@ class Model {
     public void clear() {
         inst = null;
     }
+
 
 }

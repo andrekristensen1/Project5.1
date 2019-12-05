@@ -67,7 +67,7 @@ public class JDBCConnection {
         return res;
     }
 
-    public ResultSet getBalanceStatement(int profileID, Connection conn) throws SQLException{
+   public ResultSet getBalanceStatement(int profileID, Connection conn) throws SQLException{
         String query = " select BankAccount.Balance AS Balance from BankAccount" +
                 " Where ProfileID = '" + profileID + "'";
 
@@ -76,20 +76,26 @@ public class JDBCConnection {
         stmt = conn.createStatement();
         res = stmt.executeQuery(query);
         return res;
-
-    }
-
-    public PreparedStatement updateBalanceProfile(Connection conn) throws SQLException {
-        String updateQuery = "UPDATE BankAccount" +
-                " SET Balance = ? " +
-                " WHERE ProfileID = ? ";
-        PreparedStatement updateStmt = null;
-        updateStmt = conn.prepareStatement(updateQuery);
-        return updateStmt;
     }
 
 
+   public void updateBalance(Connection conn, Float newBalance, int profileID) {
 
+
+    try{
+        String updateSql = "UPDATE BankAccount SET Balance = ? " + "WHERE ProfileID = ? " ;
+        PreparedStatement stmt = conn.prepareStatement(updateSql);
+        stmt.setFloat(1, newBalance);
+        stmt.setInt(2, profileID);
+         //int rowAffected = stmt.executeUpdate();
+        int result = stmt.executeUpdate();
+        System.out.println("Update Succesful:" + result);
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+
+   }
 
 
     /**

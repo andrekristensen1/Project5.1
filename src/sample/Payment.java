@@ -6,10 +6,12 @@ import javafx.scene.control.ListView;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Payment {
 
     Model m = Model.getInstance();
+
 
 
     public float returnSubTotal(Label subTotal){
@@ -23,6 +25,7 @@ public class Payment {
         Float Balance = BalanceResultSet.getFloat(1);
         //den er ny nedenfor
         m.closeConnection();
+        BalanceResultSet.close();
 
         return Balance;
     }
@@ -36,13 +39,11 @@ public class Payment {
         Float newBalance = balance + subTotal;
         return newBalance;
     }
-    //Dette er nyt
-    public void updateBalance(int index1, Float newBalance, int index2, int profileID) throws SQLException {
 
-
-                 PreparedStatement update = m.retriever.updateBalanceProfile(m.getConnection());
-                 update.setFloat(index1, newBalance);
-                 update.setInt(index2, profileID);
-                 update.executeUpdate();
+    public void executeUpdateBalance(Float newBalance, int profileID) throws SQLException {
+        m.retriever.updateBalance(m.getConnection(), newBalance, profileID);
+        m.closeConnection();
+        
     }
+
 }
