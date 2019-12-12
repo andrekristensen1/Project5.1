@@ -1,5 +1,5 @@
 --
--- File generated with SQLiteStudio v3.2.1 on fre. nov. 29 12:33:13 2019
+-- File generated with SQLiteStudio v3.2.1 on tor. dec. 12 12:18:15 2019
 --
 -- Text encoding used: UTF-8
 --
@@ -22,8 +22,19 @@ INSERT INTO BankAccount (
                         )
                         VALUES (
                             12,
-                            10000.0,
+                            8416.7998046875,
                             1
+                        );
+
+INSERT INTO BankAccount (
+                            AccountID,
+                            Balance,
+                            ProfileID
+                        )
+                        VALUES (
+                            11,
+                            10403.4501953125,
+                            2
                         );
 
 
@@ -31,17 +42,14 @@ INSERT INTO BankAccount (
 DROP TABLE IF EXISTS Customer;
 
 CREATE TABLE Customer (
-    CustomerName STRING PRIMARY KEY,
-    ProfileID    INT    REFERENCES Profile (ProfileID) 
+    CustomerName STRING PRIMARY KEY
 );
 
 INSERT INTO Customer (
-                         CustomerName,
-                         ProfileID
+                         CustomerName
                      )
                      VALUES (
-                         'Bjarne',
-                         1
+                         'Bjarne'
                      );
 
 
@@ -309,21 +317,35 @@ INSERT INTO ItemCategory (
 DROP TABLE IF EXISTS Profile;
 
 CREATE TABLE Profile (
-    ProfileID INT PRIMARY KEY
+    ProfileID    INT    PRIMARY KEY,
+    StoreName    STRING REFERENCES Store (StoreName) ON DELETE CASCADE
+                                                     ON UPDATE CASCADE
+                                                     MATCH SIMPLE,
+    CustomerName STRING REFERENCES Customer (CustomerName) ON DELETE CASCADE
+                                                           ON UPDATE CASCADE
+                                                           MATCH SIMPLE
 );
 
 INSERT INTO Profile (
-                        ProfileID
+                        ProfileID,
+                        StoreName,
+                        CustomerName
                     )
                     VALUES (
-                        2
+                        2,
+                        'Netto Roskilde',
+                        NULL
                     );
 
 INSERT INTO Profile (
-                        ProfileID
+                        ProfileID,
+                        StoreName,
+                        CustomerName
                     )
                     VALUES (
-                        1
+                        1,
+                        NULL,
+                        'Bjarne'
                     );
 
 
