@@ -18,13 +18,13 @@
                 <Font name="SignPainter-HouseScript" size="6.0" />
             </font>
         </Label>
-        <ListView blendMode="SOFT_LIGHT" layoutX="166.0" layoutY="129.0" prefHeight="313.0" prefWidth="183.0" />
+        <ListView fx:id="finalShoppingCart" blendMode="SOFT_LIGHT" layoutX="166.0" layoutY="129.0" prefHeight="313.0" prefWidth="183.0" />
         <Label layoutX="114.0" layoutY="86.0" text="Din betaling er gennemført! Her er din kvittering: " textFill="#4d4d4d">
             <font>
                 <Font name="Avenir Light" size="13.0" />
             </font>
         </Label>
-        <Label layoutX="166.0" layoutY="454.0" text="Du har betalt: " textFill="#4d4d4d">
+        <Label fx:id="subTotal" layoutX="166.0" layoutY="454.0" text="Du har betalt: " textFill="#4d4d4d">
             <font>
                 <Font name="Avenir Light" size="10.0" />
             </font>
@@ -32,4 +32,3 @@
         <Button blendMode="HARD_LIGHT" layoutX="453.0" layoutY="13.0" mnemonicParsing="false" text="→ " textFill="#4d4d4d" />
     </children>
 </AnchorPane>
-

@@ -36,7 +36,7 @@ public class JDBCConnection {
      * @throws SQLException
      */
 
-    public PreparedStatement selectpreparedstatement(Connection conn)
+    public PreparedStatement getItemInformationPreparedstatement(Connection conn)
             throws SQLException {
         String query = " select Item.ItemName AS ItemName, item.ItemBrand AS ItemBrand, Item.price AS price from Item" +
                 " Where ItemType = ? ";
@@ -55,8 +55,7 @@ public class JDBCConnection {
      */
 
 
-    //Søgealgoritme her!
-    public ResultSet plainstatement(String ItemType, Connection conn)
+    public ResultSet getItemInformationStatement(String ItemType, Connection conn)
             throws SQLException {
         String query = " select Item.ItemName AS ItemName, item.ItemBrand AS ItemBrand, Item.price AS price, Item.ItemQuantity AS Quantity from Item" +
                 " Where ItemType = '" + ItemType + "'";
@@ -91,19 +90,13 @@ public class JDBCConnection {
      * @param newBalance den nye balance
      * @param profileID profilID
      */
-   public void updateBalance(Connection conn, Float newBalance, int profileID) {
-    try{
+   public void updateBalance(Connection conn, Float newBalance, int profileID) throws SQLException {
         String updateSql = "UPDATE BankAccount SET Balance = ? " + "WHERE ProfileID = ? " ;                             //Updaterer balancen til newBalance, hvor profilID er lig med profileID fra param
         PreparedStatement stmt = conn.prepareStatement(updateSql);                                                      //Kreerer et PreparedStatement
         stmt.setFloat(1, newBalance);                                                                    //Sætter balance i vores query til at være lig med newBalance fra param
-        stmt.setInt(2, profileID);                                                                       //Sætter ProfileID i vores query til at være lig ProfileID fra param
-         //int rowAffected = stmt.executeUpdate();
+        stmt.setInt(2, profileID);                                                                       //Sætter ProfileID i vores query til at være lig ProfileID fra param¢
         int result = stmt.executeUpdate();                                                                              //Kreerer en int med mængden af påvirkede rows i databasen og udfører opdaterinngenn
         System.out.println("Update Succesful:" + result);                                                               //Printer påvirkede rows i GUI
-    } catch (SQLException e) {
-        e.printStackTrace();                                                                                            //Printer stacktrace på SQLException hvis metoden fejler
-    }
-
 
    }
 

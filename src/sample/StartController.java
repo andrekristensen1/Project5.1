@@ -1,20 +1,18 @@
 package sample;
-
-import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class StartController extends ItemList {
 
@@ -92,15 +90,11 @@ public class StartController extends ItemList {
             Scene payScene = new Scene(newAnchor);
             PaymentController controller = loader.getController();
             controller.getShoppingcartInfo(customerShoppingCart);
-            m.closeConnection();                                                                                        //Lukker forbindelsen til databasen
             m.clear();                                                                                                  //Rydder vores Singleton, så der kan kreeres en ny
             Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();                                //Åbner den nye scene
             app_stage.setScene(payScene);
             app_stage.show();
 
-
         }
     }
-
-
 }

@@ -5,22 +5,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 
 public class PaymentController extends Payment {
 
 
 
-    StartController startController = new StartController();
-    ItemList customerShoppingcart = new ItemList();
+    //StartController startController = new StartController();
+    //cItemList customerShoppingcart = new ItemList();
+
     Payment customerPayment = new Payment();
 
     @FXML
@@ -28,6 +27,8 @@ public class PaymentController extends Payment {
 
     @FXML
     ListView finalShoppingcart;
+
+
 
     /**
      * Returnerer til indkøbssiden
@@ -59,13 +60,15 @@ public class PaymentController extends Payment {
         System.out.println(updatedBalanceCustomer);                                                                     //Printer den nye balance i GUI
         System.out.println(updatedBalanceStore);                                                                        //Printer den nye balance i GUI
         customerPayment.executeUpdateBalance(updatedBalanceCustomer, 1);                                       //Kører executeUpdateBalance med den nye balance for kunden hvor profilID er 1
-        customerPayment.executeUpdateBalance(updatedBalanceStore, 2);                                          //Kører executeUpdateBalance med den nye balance for butikken hvor profilID er 2
-        AnchorPane newAnchor = FXMLLoader.load(getClass().getResource("Receipt.fxml"));                          //Opretter startPageParent og henter start-siden, som der skal skiftes til
-        Scene startPageScene1 = new Scene(newAnchor);                                                                   //Skaber en ny scene
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();                                    //Henter information fra vores Stage til den nye Scene
-        app_stage.setScene(startPageScene1);                                                                            //Viser den nye scene som er start-siden
-        app_stage.show();
+        customerPayment.executeUpdateBalance(updatedBalanceStore, 2);                                           //Kører executeUpdateBalance med den nye balance for butikken hvor profilID er 2
 
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Receipt.fxml"));
+        AnchorPane newAnchor = loader.load();
+        Scene payScene = new Scene(newAnchor);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();                                    //Åbner den nye scene
+        app_stage.setScene(payScene);
+        app_stage.show();
 
     }
 
@@ -73,11 +76,11 @@ public class PaymentController extends Payment {
      * Viser indkøbsliste og subtotal i GUI
      * @param shoppingCart
      */
-
     public void getShoppingcartInfo(ItemList shoppingCart){
         subTotal.setText("Sum total: " + String.valueOf(shoppingCart.getSumTotal()));                                   //Sætter subTotal Label til at være prisen på indkøbet
         shoppingCart.displayShoppingcart(finalShoppingcart);                                                            //Viser indkøbslisten i ListView
     }
+
 
 
 

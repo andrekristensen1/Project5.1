@@ -25,6 +25,7 @@ public class Payment {
        return finalValue;                                                                                               // Returnerer værdien
     }
 
+
     public Float retrieveBalance (int profileID) throws SQLException {
         ResultSet BalanceResultSet = m.retriever.getBalanceStatement(profileID, m.getConnection());                     //Kører getBalanceStatement fra vores JDBCConnnection, med profileID som parameter og får et Resultset med balance fra en profil
         Float Balance = BalanceResultSet.getFloat(1);                                                       //Finder balancen i ResultSettet og lægger den i en float

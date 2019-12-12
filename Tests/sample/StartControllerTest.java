@@ -26,7 +26,7 @@ public class StartControllerTest extends ItemList {
     @Test
     public void searchForItem() throws SQLException {
 
-        ResultSet expected = m.retriever.plainstatement("Rugbrød", conn);
+        ResultSet expected = m.retriever.getItemInformationStatement("Rugbrød", conn);
         ArrayList<String> myTest = m.retriever.presentItem(expected);
         String expextedResult = "Herkules Kohberg: 15.75 kr";
         assertEquals(myTest.get(0), expextedResult);
@@ -37,7 +37,7 @@ public class StartControllerTest extends ItemList {
     @Test
     public void itemClickedAdd() throws SQLException {
         ArrayList<String> customerShoppingcartTest = new ArrayList<>();
-        ResultSet expected = m.retriever.plainstatement("Rugbrød", conn);
+        ResultSet expected = m.retriever.getItemInformationStatement("Rugbrød", conn);
         ArrayList<String> itemListTest = m.retriever.presentItem(expected);
 
         customerShoppingcartTest.add(itemListTest.get(0));
@@ -49,7 +49,7 @@ public class StartControllerTest extends ItemList {
     @Test
     public void itemClickedRemove() throws SQLException {
         ArrayList<String> customerShoppingCartTest = new ArrayList<>();
-        ResultSet expected = m.retriever.plainstatement("Rugbrød", conn);
+        ResultSet expected = m.retriever.getItemInformationStatement("Rugbrød", conn);
         ArrayList<String> itemListTest = m.retriever.presentItem(expected);
 
         customerShoppingCartTest.add(itemListTest.get(0));

@@ -4,7 +4,6 @@ import javafx.collections.FXCollections;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,9 +32,9 @@ public class ItemList {
      * @throws SQLException
      */
     public ResultSet getItems(TextField searchOutput) throws SQLException {
-        PreparedStatement pstmt = m.retriever.selectpreparedstatement(m.getConnection());                               //Kør query når der trykkes på søgknappen
+        PreparedStatement pstmt = m.retriever.getItemInformationPreparedstatement(m.getConnection());                               //Kør query når der trykkes på søgknappen
         pstmt.setString(1, searchOutput.getText());
-        ResultSet res = m.retriever.plainstatement(searchOutput.getText(), m.getConnection());
+        ResultSet res = m.retriever.getItemInformationStatement(searchOutput.getText(), m.getConnection());
         m.closeConnection();
         return res;
     }
@@ -79,7 +78,6 @@ public class ItemList {
      */
     public float getSumTotal() {
             float sumTotal = 0;
-
             for (int i = 0; i < items.size(); i++) {
                 sumTotal = sumTotal + this.findItemPrice(items.get(i).toString());
             }
@@ -110,10 +108,6 @@ public class ItemList {
         float itemPrice = Float.valueOf(chosenItem.replaceAll("[^\\d.]", " "));
         return itemPrice;
     }
-
-
-
-
 }
 
 
