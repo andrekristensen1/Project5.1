@@ -53,9 +53,9 @@ public class PaymentController extends Payment {
 
     @FXML
     public void finalPayBtn(ActionEvent event) throws SQLException, IOException {
-        Float updatedBalanceCustomer = customerPayment.calculateNewBalanceCustomer                                      //Krerer en Float som er kundens nye balance vha calculateNewBalanceCustomer og retrieveBalance
+        Float updatedBalanceCustomer = customerPayment.calculateNewBalanceCustomer                                      //Kreerer en Float som er kundens nye balance vha calculateNewBalanceCustomer og retrieveBalance
                 (customerPayment.retrieveBalance(1), customerPayment.returnSubTotal(subTotal));
-        Float updatedBalanceStore = customerPayment.calculateNewBalanceStore                                            //Krerer en Float som er Butikkens nye balance vha calculateNewBalanceStore og retrieveBalance
+        Float updatedBalanceStore = customerPayment.calculateNewBalanceStore                                            //Kreerer en Float som er Butikkens nye balance vha calculateNewBalanceStore og retrieveBalance
                 (customerPayment.retrieveBalance(2), customerPayment.returnSubTotal(subTotal));
         System.out.println(updatedBalanceCustomer);                                                                     //Printer den nye balance i GUI
         System.out.println(updatedBalanceStore);                                                                        //Printer den nye balance i GUI
